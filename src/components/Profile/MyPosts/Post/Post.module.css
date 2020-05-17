@@ -1,0 +1,8 @@
+    .item {
+    color: brown;
+  }
+
+  .item img {
+    width: 75px;
+    border-radius: 50%;
+  }
