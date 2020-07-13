@@ -11,9 +11,9 @@ function MyPosts() {
         <button>Add post</button>
       </div>
 
-      <Post />
-      <Post />
-      <Post />
+      <Post message='Hey you there!' likes='4 ' />
+      <Post message='Bro.. nice 2 meet u' likes='46 ' />
+      <Post message=':O:O:O:O' likes='12 ' />
 
     </div>
   );
