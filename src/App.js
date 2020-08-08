@@ -9,7 +9,7 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>

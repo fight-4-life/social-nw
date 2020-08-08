@@ -2,54 +2,35 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import { NavLink } from 'react-router-dom';
 
-function Dialogs() {
+const DialogItem = (props) => {
+  return <div className={styles.dialog + ' ' + styles.active}>
+    <NavLink to={'/dialogs/' + props.id}> {props.name}  </NavLink>
+  </div>
+
+}
+
+const Message = (props) => {
+  return <div className="message">
+  {props.message}
+</div>
+}
+
+const Dialogs = () => {
   return (
     <div className={styles.dialogs}>
       <div className={styles.dialogsList}>
-        <div className={styles.dialog + ' ' + styles.active}>
-          <NavLink to='/dialogs/1'>
-            Vavan
-          </NavLink>
-        </div>
-        <div className={styles.dialog}>
-          <NavLink to='/dialogs/2'>
-            Iren
-          </NavLink>
-        </div>
-        <div className={styles.dialog}>
-          <NavLink to='/dialogs/3'>
-            Bieven
-          </NavLink>
-        </div>
-        <div className={styles.dialog}>
-          <NavLink to='/dialogs/4'>
-            Kama
-          </NavLink>
-        </div>
-        <div className={styles.dialog}>
-          <NavLink to='/dialogs/5'>
-            Maga
-          </NavLink>
-        </div>
-        <div className={styles.dialog}>
-          <NavLink to='/dialogs/6'>
-            Lena
-          </NavLink>
-        </div>
+        <DialogItem name='Vavan' id='1' />
+        <DialogItem name='Iren' id='2' />
+        <DialogItem name='Biven' id='3' />
+        <DialogItem name='Kama' id='4' />
+        <DialogItem name='Maga' id='5' />
+        <DialogItem name='Konek' id='6' />
       </div>
       <div className={styles.messagesList}>
-        <div className="message">
-          Hello moto
-        </div>
-        <div className="message">
-          Chiferni-ka bratok
-        </div>
-        <div className="message">
-          Feel good
-        </div>
-        <div className="message">
-          Ok alright
-        </div>
+        <Message message='Hello moto' />
+        <Message message='Chiferni-ka bratok' />
+        <Message message='Feel good' />
+        <Message message='Ok alright' />
       </div>
     </div>
   );

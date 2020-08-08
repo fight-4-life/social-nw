@@ -1,18 +1,13 @@
 import React from 'react';
 import styles from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-function Profile() {
+const Profile = () => {
   return (
     <div className={styles.content}>
-
-      <img src='https://www.postoffice.co.uk/dam/jcr:67391008-e00a-4c32-a87c-76f2b6e2017d/travel-money_627x277.png' />
-      <div>
-        avatar, description
-      </div>
-
+      <ProfileInfo />
       <MyPosts />
-
     </div>
   );
 }
