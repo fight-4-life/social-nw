@@ -1,5 +1,3 @@
-import { rerenderEntireTree } from "../render";
-
 let state = {
   profilePage: {
     posts: [
@@ -28,7 +26,14 @@ let state = {
   }
 
 }
-export let addPost = () => {
+
+let rerenderEntireTree = () => {}
+
+export const subscriber = (observer) => {
+  rerenderEntireTree = observer;
+}
+
+export const addPost = () => {
   let newPost = {
     id: 4,
     post: state.profilePage.newPostText,
@@ -40,13 +45,13 @@ export let addPost = () => {
   rerenderEntireTree(state);
 }
 
-export let updatePostText = (newText) => {
+export const updatePostText = (newText) => {
   state.profilePage.newPostText = newText;
   console.log(newText)
   rerenderEntireTree(state);
 }
 
-export let addMessage = () => {
+export const addMessage = () => {
   let newMessage = { 
     id: 5, 
     message: state.dialogsPage.newMessageText 
@@ -58,7 +63,7 @@ export let addMessage = () => {
   rerenderEntireTree(state);
 }
 
-export let updateMessageText = (newMsgText) => {
+export const updateMessageText = (newMsgText) => {
   state.dialogsPage.newMessageText = newMsgText;
   console.log(newMsgText)
   rerenderEntireTree(state);
