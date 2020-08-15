@@ -13,8 +13,14 @@ const Dialogs = (props) => {
 
   let sendMessage = () => {
     let messageText = newMessageElement.current.value;
-    alert(messageText);
+    props.addMessage(messageText);
   }
+
+  let onMessageChange = () => {
+    let messageText = newMessageElement.current.value;
+    props.updateMessageText(messageText);
+  }
+
 
   return (
     <div className={styles.dialogs}>
@@ -29,7 +35,9 @@ const Dialogs = (props) => {
         <div className={styles.messagesList}>
           <h3>Messages</h3>
           {messagesElements}
-          <textarea ref={newMessageElement}></textarea>
+          <textarea ref={newMessageElement}
+          onChange={onMessageChange} 
+          value={props.state.dialogsPage.newMessageText}></textarea>
           <div><button onClick={sendMessage}>Send</button></div>
         </div>
 
