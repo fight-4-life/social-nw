@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 let store = {
 
   _state: {
@@ -28,12 +31,12 @@ let store = {
     }
 
   },
+  _callSubscriber() { },
   getState() {
     return this._state;
   },
-  callSubscriber() { },
   subscriber(observer) {
-    this.callSubscriber = observer;
+    this._callSubscriber = observer;
   },
   dispatch(action) {
     if (action.type === 'ADD-POST') {
@@ -45,11 +48,11 @@ let store = {
 
       this._state.profilePage.posts.push(newPost);
       this._state.profilePage.newPostText = '';
-      this.callSubscriber(this._state);
+      this._callSubscriber(this._state);
     } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
       this._state.profilePage.newPostText = action.newText;
       console.log(action.newText)
-      this.callSubscriber(this._state);
+      this._callSubscriber(this._state);
     } else if (action.type === 'ADD-MESSAGE') {
       let newMessage = {
         id: 5,
@@ -57,15 +60,23 @@ let store = {
       }
       this._state.dialogsPage.messages.push(newMessage);
       this._state.dialogsPage.newMessageText = '';
-  
+
       console.log(newMessage)
-      this.callSubscriber(this._state);
+      this._callSubscriber(this._state);
     } else if (action.type = 'UPDATE-MESSAGE-TEXT') {
       this._state.dialogsPage.newMessageText = action.newMsgText;
-    console.log(action.newMsgText)
-    this.callSubscriber(this._state);
+      console.log(action.newMsgText)
+      this._callSubscriber(this._state);
     }
   }
 }
+
+export const addNewPostActionCreator = () => ({ type: ADD_POST })
+
+export const onPostChangeActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+
+export const sendMessageActionCreator = () => ({ type: 'ADD-MESSAGE' })
+
+export const onMessageChangeActionCreator = (text) => ({ type: 'UPDATE-MESSAGE-TEXT', newMsgText: text })
 
 export default store;
