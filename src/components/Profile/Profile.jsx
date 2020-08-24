@@ -5,9 +5,9 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import Post from './../Profile/MyPosts/Post/Post';
 
 const Profile = (props) => {
-
-  let postsElements = props.state.profilePage.posts.map(post => <Post message={post.post} likes={post.likesCount} />);
-
+  
+  let postsElements = props.state.posts.map(post => <Post message={post.post} likes={post.likesCount} />);
+ 
   return (
     <div className={styles.content}>
       <ProfileInfo />
