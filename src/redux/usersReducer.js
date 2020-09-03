@@ -2,11 +2,9 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
-export const followAC = (uderId) => ({ type: FOLLOW, uderId })
-export const unfollowAC = (uderId) => ({ type: UNFOLLOW, uderId })
+export const followAC = (userId) => ({ type: FOLLOW, userId })
+export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId })
 export const setUsersAC = (users) => ({ type: SET_USERS, users })
-
-
 
 let initialState = {
   users: [
