@@ -13,6 +13,9 @@ function Nav() {
           <NavLink activeClassName={styles.activeLink} to='/dialogs'>Messages</NavLink>
         </li>
         <li className={styles.item}>
+          <NavLink activeClassName={styles.activeLink} to='/users'>Users</NavLink>
+        </li>
+        <li className={styles.item}>
           <NavLink activeClassName={styles.activeLink} to='/photos'>Photos</NavLink>
         </li>
         <li className={styles.item}>
