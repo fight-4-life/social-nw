@@ -7,3 +7,12 @@
   width: 55px;
   height: 55px;
 }
+
+.login {
+  float: right;
+  font-weight: bold;
+  margin-right: 5%;
+}
+.login a {
+  color: black;
+}
