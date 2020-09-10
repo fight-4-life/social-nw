@@ -2,13 +2,10 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
-import { Redirect } from 'react-router-dom';
 
 const Dialogs = (props) => {
 
   let state = props.dialogsPage;
-
-  if (!props.isAuth) return  <Redirect to={'/login'}/> // checking auth and hide messages
 
   let dialogElements = state.dialogs.map(el => <DialogItem name={el.name} key={el.id} id={el.id} />);
 

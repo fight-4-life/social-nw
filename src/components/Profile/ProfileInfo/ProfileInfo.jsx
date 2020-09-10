@@ -1,14 +1,11 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
-import { Redirect } from 'react-router-dom';
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader/>
   }
-
-  if (!props.isAuth) return  <Redirect to={'/login'}/>
 
   return ( 
     <div className={styles.content}>
