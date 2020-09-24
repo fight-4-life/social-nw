@@ -7,12 +7,13 @@ function Header(props) {
         <header className={styles.header}>
             <img src='https://www.causevox.com/wp-content/uploads/2011/05/logo-finished.png ' />
             <div className={styles.login}>
-            {props.isAuth ? props.login :
-            <NavLink to={'/login'}>
-                LOGIN
-            </NavLink>} 
-              </div>
-            
+                {props.isAuth
+                    ? <div> {props.login} <button onClick={props.logout}>Logout</button></div>
+                    : <NavLink to={'/login'}>
+                        LOGIN
+                    </NavLink>}
+            </div>
+
         </header>
     );
 }
