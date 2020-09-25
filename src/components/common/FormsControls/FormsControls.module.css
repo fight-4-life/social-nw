@@ -6,3 +6,7 @@
 .formControl span {
     color: lightcoral
 }
+
+.formSummaryError {
+    color: lightcoral
+}
