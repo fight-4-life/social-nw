@@ -1,4 +1,4 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
+const ADD_MESSAGE = 'dialogs/ADD-MESSAGE';
 
 export const sendMessageActionCreator = (newMessageText) => ({ type: ADD_MESSAGE, newMessageText })
 
