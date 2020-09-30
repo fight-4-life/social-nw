@@ -4,14 +4,14 @@ import userPhoto from '../../assets/user.png'
 import { NavLink, Redirect } from 'react-router-dom';
 import Pagination from './Pagination';
 
-
-
-let Users = ({ currentPage, onPageChange, ...props }) => {
+const Users = ({ currentPage, onPageChange, totalUsersCount, pageSize, ...props }) => {
 
     return (<div>
         <Pagination
             currentPage={currentPage}
             onPageChange={onPageChange}
+            totalItemsCount={totalUsersCount}
+            pageSize={pageSize}
         />
         {props.users.map(u =>
             <div key={u.id}>
