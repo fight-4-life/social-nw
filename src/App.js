@@ -4,7 +4,7 @@ import Nav from './components/Nav/Nav';
 import Photos from './components/Photos/Photos';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 //import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 //import ProfileContainer from './components/Profile/ProfileContainer';
@@ -27,8 +27,9 @@ class App extends React.Component {
     if (!this.props.initialized) {
       return <Preloader />
     }
+    // HashRouter used for gh pages. Please use BrouserRouter
     return (
-      <BrowserRouter>
+      <HashRouter>   
         <div className='app-wrapper'>
           <HeaderComponent />
           <Nav />
@@ -57,7 +58,7 @@ class App extends React.Component {
             <Route path='/settings' component={Settings} />
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
