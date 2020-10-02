@@ -1,8 +1,26 @@
 .descriptionBlock {
-    padding: 10px;
+    padding: 20px 10px;
+    
 }
 
 .mainPhoto {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+}
+
+.status {
+    font-weight: bold;
+    color: gray;
+    margin-bottom: 25px;
+}
+
+.statusText {
+    margin-bottom: 25px;
+    font-family: cursive;
+}
+
+.contacts {
+    padding-left: 10px;
+    font-size: small;
 }
