@@ -64,44 +64,49 @@ export const getStatus = (userId) => {
 
 export const updateStatus = (status) => {
   return async (dispatch) => {
-    const response = await profileAPI.updateStatus(status)
-    if (response.data.resultCode === 0) {
-      dispatch(setStatus(status))
+    try {
+      const response = await profileAPI.updateStatus(status)
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(status))
+      }
+    } catch (error) {
+      debugger
+      alert(error) //here will be error handler
     }
   }
 }
 
-export const savePhoto = (file) => async (dispatch) => {
-  const response = await profileAPI.savePhoto(file);
-  if (response.data.resultCode === 0) {
-    dispatch(savePhotoSuccess(response.data.data.photos));
+  export const savePhoto = (file) => async (dispatch) => {
+    const response = await profileAPI.savePhoto(file);
+    if (response.data.resultCode === 0) {
+      dispatch(savePhotoSuccess(response.data.data.photos));
+    }
   }
-}
 
-export const saveProfile = (profile) => async (dispatch, getState) => {
-  const userId = getState().auth.id
-  let response = await profileAPI.saveProfile(profile);
-  if (response.data.resultCode === 0) {
-    dispatch(getUserProfile(userId));
-  } else {
-    let key = response.data.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase();
-    dispatch(stopSubmit('editProfile', {
-      contacts: { [key]: response.data.messages[0] },
-    }))
-    return Promise.reject(response.data.messages[0])
+  export const saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.id
+    let response = await profileAPI.saveProfile(profile);
+    if (response.data.resultCode === 0) {
+      dispatch(getUserProfile(userId));
+    } else {
+      let key = response.data.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase();
+      dispatch(stopSubmit('editProfile', {
+        contacts: { [key]: response.data.messages[0] },
+      }))
+      return Promise.reject(response.data.messages[0])
+    }
+    //4 show general error {_error: response.data.messages[0] }
+
   }
-  //4 show general error {_error: response.data.messages[0] }
 
-}
+  export const addNewPostActionCreator = (newPostText) => ({ type: ADD_POST, newPostText })
 
-export const addNewPostActionCreator = (newPostText) => ({ type: ADD_POST, newPostText })
+  export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
-export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
+  export const setStatus = (status) => ({ type: SET_STATUS, status })
 
-export const setStatus = (status) => ({ type: SET_STATUS, status })
+  export const deletePost = (id) => ({ type: DELETE_POST, id })
 
-export const deletePost = (id) => ({ type: DELETE_POST, id })
+  export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
 
-export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
-
-export default profileReducer
+  export default profileReducer
