@@ -5,3 +5,7 @@
 .post {
     margin-top: 10px;
 }
+
+.addPostButton {
+    border-radius: 10px;
+}

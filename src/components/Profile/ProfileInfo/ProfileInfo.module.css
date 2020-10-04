@@ -7,6 +7,8 @@
     height: 200px;
     width: 200px;
     border-radius: 50%;
+    box-shadow: 5px 3px 3px 3px rgba(208, 214, 214, 0.555);
+
 }
 
 .status {
@@ -23,4 +25,24 @@
 .contacts {
     padding-left: 10px;
     font-size: small;
+}
+
+.editButton {
+    background-color: #ffa973;
+    border-radius: 10px;
+}
+
+input[type='file'] {
+    display: none;
+}
+
+.uploadUserPhotoInput {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background-color: whitesmoke;
+    font-size: small;
+
+    padding: 1px;
+    margin-left: 100px;
 }

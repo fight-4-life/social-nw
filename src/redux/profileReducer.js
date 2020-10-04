@@ -37,7 +37,7 @@ const profileReducer = (state = initialState, action) => {
       }
     case DELETE_POST:
       return {
-        ...state, posts: state.posts.filter(p => p.id != action.id)
+        ...state, posts: state.posts.filter(p => p.id !== action.id)
       }
     case SAVE_PHOTO_SUCCESS:
       return {

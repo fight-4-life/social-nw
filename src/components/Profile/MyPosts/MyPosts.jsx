@@ -7,25 +7,25 @@ import { Textarea } from '../../common/FormsControls/FormsControls';
 
 const maxLength10 = maxLengthCreator(10)
 
-const AddPostMessageForm = (props) => {
+const AddPostMessageForm = React.memo(props => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field component={Textarea} placeholder={'Text your message'} name={'newPostText'}
+        <Field component={Textarea} placeholder={'Text post message'} name={'newPostText'}
           validate={[required, maxLength10]}
         />
       </div>
       <div>
-        <button>Add post</button>
+        <button className={styles.addPostButton}>Add new post</button>
       </div>
 
     </form>
   )
-}
+})
 
 const AddPostMessageReduxForm = reduxForm({ form: 'postMessageForm' })(AddPostMessageForm)
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
 
   let postsElements = [...props.posts]
     .reverse()
@@ -45,7 +45,7 @@ const MyPosts = (props) => {
         {postsElements}
       </div>
     </div>
-  );
-}
+  )
+})
 
 export default MyPosts;

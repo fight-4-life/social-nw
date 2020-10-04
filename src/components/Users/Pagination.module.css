@@ -10,3 +10,10 @@
     font-weight: bold;
     border-color: black;
 }
+
+.portionButton {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}

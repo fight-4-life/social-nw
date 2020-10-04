@@ -17,16 +17,17 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
                 <Field placeholder={'Password'} name={'password'} component={Input} validate={[required]} type={'password'} />
             </div>
             <div>
-                <Field type={'checkbox'} name={'rememberMe'} component={Input} /> remember me
+            Remember me <Field type={'checkbox'} name={'rememberMe'} component={Input} /> 
             </div>
-            {captchaUrl && <img src={captchaUrl}/>}
-               
-            {captchaUrl &&  <Field placeholder={'Enter the symbols from image'} name={'captcha'} component={Input} validate={[required]} />}
+            {captchaUrl && <img src={captchaUrl} alt={'captcha'} />}
+
+            {captchaUrl && <Field placeholder={'Enter the symbols from image'} name={'captcha'}
+                component={Input} validate={[required]} />}
             {error && <div className={styles.formSummaryError}>
                 {error}
             </div>}
             <div>
-                <button>Login </button>
+                <button className={styles.loginButton}>Login</button>
             </div>
         </form>
     )
@@ -44,7 +45,8 @@ const Login = (props) => {
     }
 
     return <div>
-        <h1>LOGIN</h1>
+        <h1>Login page</h1>
+        <p>Please enter your login and password</p>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
 }

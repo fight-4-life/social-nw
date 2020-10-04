@@ -13,6 +13,7 @@ import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import { initializeApp } from './redux/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
+import Footer from './components/Footer/Footer';
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
@@ -69,6 +70,7 @@ class App extends React.Component {
               />
             </Switch>
           </div>
+          <Footer/>
         </div>
       </HashRouter>
     );

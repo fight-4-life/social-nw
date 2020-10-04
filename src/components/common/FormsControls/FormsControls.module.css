@@ -10,3 +10,14 @@
 .formSummaryError {
     color: lightcoral
 }
+
+.saveButton {
+    background-color: #bffff0;
+    border-radius: 10px;
+}
+
+.loginButton {
+    border-radius: 10px;
+    padding: 5px;
+    width: 60px;
+}

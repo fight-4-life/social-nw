@@ -7,10 +7,12 @@
     padding-left: 20px;
 }
 
-.messagesList {
+.messagesList { 
    padding-bottom: 20px;
    padding-left: 40px;
    font-style: italic;
+   border-left: 1px dashed gray;
+
 }
 
 .dialogsList .active {
@@ -20,4 +22,9 @@
 .dialog a {
     text-decoration: none;
     color: darkblue;
+}
+
+.sendMessageButton {
+    border-radius: 10px;
+    padding: 3px;
 }

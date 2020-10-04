@@ -16,3 +16,11 @@
 .login a {
   color: black;
 }
+
+.logoutButton {
+  padding: 3px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}

@@ -18,7 +18,7 @@ const Pagination = ({ pageSize, totalItemsCount, currentPage, onPageChange, port
 
     return <div className={styles.paginator}>
         {portionNumber > 1 &&
-            <button onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button>}
+            <button className={styles.portionButton} onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button>}
 
         {pages
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
@@ -32,7 +32,7 @@ const Pagination = ({ pageSize, totalItemsCount, currentPage, onPageChange, port
                     }}>{p}</span>
             })}
         {portionCount > portionNumber &&
-            <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button>}
+            <button className={styles.portionButton} onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button>}
 
 
     </div>

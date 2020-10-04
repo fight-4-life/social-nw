@@ -21,7 +21,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
   }
 
   const onSubmit = (formData) => {
-    saveProfile(formData).then( () => {
+    saveProfile(formData).then(() => {
       setEditMode(false)
     })
   }
@@ -35,10 +35,13 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
       <div>
         <b>{profile.fullName}</b>
       </div>
-      <img src={profile.photos.large || userPhoto} className={styles.mainPhoto} />
+      <img src={profile.photos.large || userPhoto} alt={'userpic'} className={styles.mainPhoto} />
       <div>
         {isOwner &&
-          <input type={'file'} onChange={onMainPhotoSelected} />
+          <label className={styles.uploadUserPhotoInput}>
+            <input type={'file'} onChange={onMainPhotoSelected} />
+            Upload photo
+          </label>
         }
       </div>
       {editMode ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
@@ -51,7 +54,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
   return (
     <div>
       {isOwner &&
-        <div><button onClick={goToEditMode}>edit profile</button></div>}
+        <div><button className={styles.editButton} onClick={goToEditMode}>edit profile</button></div>}
       <div>
         <b>Looking for a job:</b> {profile.lookingForAJob ? 'yes' : 'no'}
       </div>

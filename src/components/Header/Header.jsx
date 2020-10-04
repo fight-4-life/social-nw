@@ -1,16 +1,19 @@
 import React from 'react';
 import styles from './Header.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
+import logo from '../../assets/eye.png'
 
 function Header(props) {
     return (
         <header className={styles.header}>
-            <img src='https://www.causevox.com/wp-content/uploads/2011/05/logo-finished.png ' />
+            <img src={logo} alt={'logo'} />
             <div className={styles.login}>
                 {props.isAuth
-                    ? <div> {props.login} <button onClick={props.logout}>Logout</button></div>
+                    ? <div> {props.login} <button className={styles.logoutButton}
+                        onClick={props.logout}>Logout</button></div>
                     : <NavLink to={'/login'}>
-                        LOGIN
+                        L O G I N
+                        <Redirect to={'/login'} />
                     </NavLink>}
             </div>
 
