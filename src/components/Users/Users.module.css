@@ -1,3 +1,9 @@
+.usersPage {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .userPic {
     width: 100px;
     height: 100px;
@@ -18,7 +24,7 @@
     height: 180px;
     width: 250px;
 
-    box-shadow: inset 5px 5px white;
+    box-shadow: inset 9px 5px rgba(188, 186, 214, 0.616);
 }
 
 .userName {
@@ -33,5 +39,5 @@
 
 .followButton {
     border-radius: 10px;
-    background-color: #bffff0;
+    background-color: #41ff414d;
 }

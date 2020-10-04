@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { login } from '../../redux/authReducer';
 import { Redirect } from 'react-router-dom';
 import styles from '../common/FormsControls/FormsControls.module.css'
+import loginStyles from './Login.module.css'
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
     return (
@@ -44,7 +45,7 @@ const Login = (props) => {
         return <Redirect to={'/profile'} />
     }
 
-    return <div>
+    return <div className={loginStyles.loginPage}>
         <h1>Login page</h1>
         <p>Please enter your login and password</p>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />

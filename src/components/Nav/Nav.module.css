@@ -1,6 +1,6 @@
 .nav {
     grid-area: n;
-    background-color: burlywood;
+    background-color: rgba(55, 65, 99, 0.842);
   }
 
 .item a {
@@ -13,5 +13,5 @@ li {
 }
 
 a.activeLink, a:hover {
-  color: darkred;
+  color: rgba(248, 245, 64, 0.548);;
 }

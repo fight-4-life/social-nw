@@ -32,7 +32,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
       <div className={styles.statusText}>
         <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
       </div>
-      <div>
+      <div className={styles.userName}>
         <b>{profile.fullName}</b>
       </div>
       <img src={profile.photos.large || userPhoto} alt={'userpic'} className={styles.mainPhoto} />

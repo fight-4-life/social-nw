@@ -1,25 +1,32 @@
 .descriptionBlock {
     padding: 20px 10px;
-    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .mainPhoto {
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    box-shadow: 5px 3px 3px 3px rgba(208, 214, 214, 0.555);
+    box-shadow: 5px 3px 3px 3px rgba(208, 214, 214, 0.952);
 
 }
-
+.userName {
+    font-size: 25px;
+}
 .status {
     font-weight: bold;
     color: gray;
-    margin-bottom: 25px;
+    margin-left: -70%;
 }
 
 .statusText {
     margin-bottom: 25px;
-    font-family: cursive;
+    font-size: 23px;
+    font-weight: lighter;
+    margin-left: -60%;
+
 }
 
 .contacts {

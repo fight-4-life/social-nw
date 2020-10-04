@@ -1,11 +1,11 @@
 .app-wrapper {
   display: grid;
   grid-template-areas:
-  'h h'
-  'n c'
-  'f f';
+  'h h h'
+  'n c s'
+  'f f f';
   grid-template-rows: 60px 1fr 60px;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 2fr 10fr 2fr;
 
   position: relative;
   min-height: 100vh;
@@ -15,6 +15,6 @@
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: rgb(199, 228, 247);
+  background-color: rgb(255, 255, 255);
   padding-bottom: 60px;
 }

@@ -1,6 +1,6 @@
 .footer {
     grid-area: f;
-    background-color: rgb(117, 203, 243);
+    background-color: rgba(118, 145, 218, 0.219);
     height: 60px;
     position: absolute;
     width: 100%;

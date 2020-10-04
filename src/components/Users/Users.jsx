@@ -6,7 +6,7 @@ import Pagination from './Pagination';
 
 const Users = ({ currentPage, onPageChange, totalUsersCount, pageSize, ...props }) => {
 
-    return (<div>
+    return (<div className={styles.usersPage}>
         <Pagination
             currentPage={currentPage}
             onPageChange={onPageChange}
