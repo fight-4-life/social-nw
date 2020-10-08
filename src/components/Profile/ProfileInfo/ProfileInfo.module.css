@@ -25,7 +25,7 @@
     margin-bottom: 25px;
     font-size: 23px;
     font-weight: lighter;
-    margin-left: -60%;
+    margin-left: -60%;  
 
 }
 
@@ -51,5 +51,27 @@ input[type='file'] {
     font-size: small;
 
     padding: 1px;
-    margin-left: 100px;
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 400px) {
+    .mainPhoto {
+        width: 100px;
+        height: 100px;
+    }
+
+    .statusText {
+        font-size: 18px;
+    margin-left: -20%;  
+    }
+
+    .status {
+    margin-left: -30%;  
+
+    }
+
+    .descriptionBlock {
+        padding: 5px 2px;
+        margin-left: -10%;
+    }
 }

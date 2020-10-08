@@ -1,17 +1,25 @@
 .nav {
     grid-area: n;
-    background-color: rgba(55, 65, 99, 0.842);
+    background-color: rgba(55, 65, 99, 0.85);
   }
 
 .item a {
   color: white;
   text-decoration: none;
 }
-
+ul {
+ margin-left: -1em;
+}
 li {
   list-style: none;
 }
 
 a.activeLink, a:hover {
   color: rgba(248, 245, 64, 0.548);;
+}
+
+@media screen and (max-width: 400px) {
+  .nav  {
+      width: 100px;
+  }
 }
