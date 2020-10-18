@@ -56,7 +56,7 @@ class App extends React.Component {
                 </Suspense>}
               />
               <Route path='/users'
-                render={() => <UsersContainer
+                render={() => <UsersContainer pageTitle={'All users'}
                 />}
               />
               <Route path='/login'

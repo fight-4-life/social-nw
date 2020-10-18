@@ -3,8 +3,20 @@ import styles from './Users.module.css'
 import userPhoto from '../../assets/mrrobot.png'
 import { NavLink } from 'react-router-dom';
 import Pagination from './Pagination';
+import { UsersType } from '../../types/types';
 
-const Users = ({ currentPage, onPageChange, totalUsersCount, pageSize, ...props }) => {
+type PropsType = {
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
+    onPageChange: (pageNumber: number) => void
+    users: Array<UsersType>
+    followingInProgress: Array<number>
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+}
+
+const Users: React.FC<PropsType> = ({ currentPage, onPageChange, totalUsersCount, pageSize, users, ...props }) => {
 
     return (<div className={styles.usersPage}>
         <Pagination
@@ -13,7 +25,7 @@ const Users = ({ currentPage, onPageChange, totalUsersCount, pageSize, ...props 
             totalItemsCount={totalUsersCount}
             pageSize={pageSize}
         />
-        {props.users.map(u =>
+        {users.map(u =>
             <div className={styles.userInList} key={u.id}>
                 <span>
                     <div className={styles.userName}>{u.name}</div>
@@ -29,7 +41,8 @@ const Users = ({ currentPage, onPageChange, totalUsersCount, pageSize, ...props 
                         </NavLink>
                     </div>
                     <div>
-                        {u.followed
+                        {// @ts-ignore
+                            u.followed
                             ? <button className={styles.unfollowButton} disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
                                 props.unfollow(u.id)
                             }}>unfollow</button>
