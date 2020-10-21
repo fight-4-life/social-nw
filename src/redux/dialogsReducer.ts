@@ -28,8 +28,8 @@ let initialState = {
   ] as Array<DialogType>,
   messages: [
     { id: 1, message: 'Hello' },
-    { id: 2, message: 'Chiferni-ka bratok' },
-    { id: 3, message: 'Feel good' },
+    { id: 2, message: 'What do we get for 10 dollars?' },
+    { id: 3, message: 'Everything' },
     { id: 4, message: 'Ok alright' }
   ] as Array<MessageType>
 }
