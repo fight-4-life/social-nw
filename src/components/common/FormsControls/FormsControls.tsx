@@ -1,7 +1,16 @@
 import React from 'react'
 import styles from './FormsControls.module.css'
+import {WrappedFieldProps} from "redux-form";
 
-export const Textarea = ({ input, meta: { touched, error }, ...props }) => {
+type TextareaInputPropsType = {
+    input: WrappedFieldProps
+    meta: {
+        touched: boolean
+        error: string
+    }
+}
+
+export const Textarea: React.FC<TextareaInputPropsType> = ({ input, meta: { touched, error }, ...props }) => {
     const hasError = touched && error
 
     return (
@@ -14,7 +23,7 @@ export const Textarea = ({ input, meta: { touched, error }, ...props }) => {
     )
 }
 
-export const Input = ({ input, meta: { touched, error }, ...props }) => {
+export const Input: React.FC<TextareaInputPropsType> = ({ input, meta: { touched, error }, ...props }) => {
     const hasError = touched && error
 
     return (
