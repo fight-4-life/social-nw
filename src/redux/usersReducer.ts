@@ -1,5 +1,5 @@
 import { UsersType } from './../types/types';
-import { usersAPI } from '../api/api.js'
+import { usersAPI } from '../api/api'
 import {AppStateType} from "./reduxStore";
 import {Dispatch} from "redux";
 

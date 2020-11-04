@@ -1,12 +1,12 @@
 import React from 'react'
 import preloader from '../../../assets/preloader.gif';
+import { Spin } from 'antd';
 
-let Preloader = () => {
+const Preloader = () => {
     return (
-        <img src={preloader} alt={'preloader'} />
+        <Spin size={"large"}/>
+       // <img src={preloader} alt={'preloader'} />
     )
-
-    
 }
 
 export default Preloader

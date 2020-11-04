@@ -1,4 +1,4 @@
-import { PhotosType, ContactsType } from './../types/types';
+import {PhotosType, ProfileType} from './../types/types';
 import { profileAPI } from '../api/api';
 import { stopSubmit } from 'redux-form';
 
@@ -12,15 +12,6 @@ type PostsType = {
   id: number
   post: string
   likesCount: number
-}
-
-type ProfileType = {
-  userId: number
-  lookingForAJob: boolean
-  lookingForAJobDescription: string
-  fullName: string
-  contacts: ContactsType
-  photos: PhotosType
 }
 
 let initialState = {
@@ -87,7 +78,6 @@ export const updateStatus = (status: string) => {
         dispatch(setStatus(status))
       }
     } catch (error) {
-      debugger
       alert(error) //here will be error handler
     }
   }
