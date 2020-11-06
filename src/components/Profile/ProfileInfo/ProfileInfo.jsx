@@ -5,6 +5,7 @@ import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import userPhoto from '../../../assets/user.png'
 import { useState } from 'react';
 import ProfileDataForm from './ProfileDataForm';
+import {Button} from "antd";
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
 
@@ -54,7 +55,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
   return (
     <div>
       {isOwner &&
-        <div><button className={styles.editButton} onClick={goToEditMode}>edit profile</button></div>}
+        <div><Button default onClick={goToEditMode}>edit profile</Button></div>}
       <div>
         <b>Looking for a job:</b> {profile.lookingForAJob ? 'yes' : 'no'}
       </div>

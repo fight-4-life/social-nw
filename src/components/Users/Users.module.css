@@ -1,13 +1,13 @@
 .usersPage {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
 }
 
 .userPic {
     width: 100px;
     height: 100px;
-    margin-left: 75px;
+    margin-left: 70px;
 }
 
 .selectedPage {
@@ -18,7 +18,7 @@
     border: 2px solid black;
     border-radius: 15px;
 
-    padding: 5px 5px;
+    padding: 10px 10px;
     margin: 5px;
 
     height: 210px;
@@ -28,17 +28,15 @@
 }
 
 .userName {
-    margin-left: 120px;
+    margin-left: 110px;
     font-weight: bold;
 }
 
 .unfollowButton {
-    border-radius: 10px;
     background-color: #ffa973;
 }
 
 .followButton {
-    border-radius: 10px;
     background-color: #41ff414d;
 }
 
@@ -46,6 +44,7 @@
     .userInList {
         height: 130px;
         width: 170px;
+        font-size: 0.8em;
         margin: 0;
         margin-bottom: 5px;
 
@@ -53,7 +52,8 @@
     .userPic {
         width: 50px;
         height: 50px;
-        margin-left: 55px;
+        margin-left: 50px;
+        margin-top: -15px;
     }
 
     .userName {

@@ -2,7 +2,7 @@
     grid-area: h;
     /* background-color: rgba(245, 242, 88, 0.815); */
     background: linear-gradient(40deg,
-     rgba(55,65,99,0.85) 15%, rgba(245,242,88,0.85) 30%, rgba(211,218,118,0.18) 85%);;
+    rgb(40, 54, 81) 15%, rgb(49, 73, 114) 25%, rgb(215, 227, 229) 80%);;
     /* position: fixed; */
     width: 100%;
   }
@@ -10,6 +10,7 @@
 .header img {
   width: 55px;
   height: 55px;
+  margin-left: 20px;
 }
 
 .login {

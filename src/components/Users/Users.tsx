@@ -4,6 +4,7 @@ import userPhoto from '../../assets/mrrobot.png'
 import { NavLink } from 'react-router-dom';
 import Pagination from './Pagination';
 import { UsersType } from '../../types/types';
+import {Button} from "antd";
 
 type PropsType = {
     pageSize: number
@@ -43,13 +44,17 @@ const Users: React.FC<PropsType> = ({ currentPage, onPageChange, totalUsersCount
                     <div>
                         {// @ts-ignore
                             u.followed
-                            ? <button className={styles.unfollowButton} disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                            ? <Button type={"primary"} size={'small'} danger
+                                      //className={styles.unfollowButton}
+                                      disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
                                 props.unfollow(u.id)
-                            }}>unfollow</button>
+                            }}>unfollow</Button>
 
-                            : <button className={styles.followButton} disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                            : <Button type={"primary"} size={'small'}
+                                      //className={styles.followButton}
+                                      disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
                                 props.follow(u.id)
-                            }}>follow <b>{u.name}</b></button>
+                            }}>follow <b> {u.name}</b></Button>
                         }
                     </div>
                 </span>

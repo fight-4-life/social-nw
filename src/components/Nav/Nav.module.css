@@ -1,6 +1,6 @@
 .nav {
     grid-area: n;
-    background-color: rgba(55, 65, 99, 0.85);
+    background-color: rgb(40, 54, 81);
   }
 
 .item a {
@@ -15,11 +15,14 @@ li {
 }
 
 a.activeLink, a:hover {
-  color: rgba(248, 245, 64, 0.548);;
+  color: rgb(64, 196, 248);;
 }
 
 @media screen and (max-width: 400px) {
   .nav  {
       width: 100px;
   }
+  ul {
+        margin-left: -1.5em;
+    }
 }

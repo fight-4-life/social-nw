@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Post.module.css';
 import smallUserpic from '../../../../assets/mrrobot.png'
+import {Button} from "antd";
 
 function Post(props) {
   return (
@@ -9,7 +10,7 @@ function Post(props) {
         <img src={smallUserpic} alt='small userpic'/>
           {props.message}
         </div>
-  <div><button> {props.likes} likes </button></div>
+  <div><Button> {props.likes} likes </Button></div>
     </div>
   );
 }

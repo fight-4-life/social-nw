@@ -14,19 +14,19 @@ import Preloader from './components/common/Preloader/Preloader';
 import Footer from './components/Footer/Footer';
 import Sidebar from './components/Sidebar/Sideber';
 import 'antd/dist/antd.css';
-import ProfileContainer from './components/Profile/ProfileContainer';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
+// import ProfileContainer from './components/Profile/ProfileContainer';
+// import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
-import {Layout, Menu, Breadcrumb} from 'antd';
+//import {Layout, Menu, Breadcrumb} from 'antd';
 // import {UserOutlined, LaptopOutlined, NotificationOutlined} from '@ant-design/icons';
 // import styles from "./components/Nav/Nav.module.css";
 
 // const {SubMenu} = Menu;
 // const {Header, Content, Footer, Sider} = Layout;
-//
-// const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
-// const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
+
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
 
 class App extends React.Component {
 
@@ -66,7 +66,7 @@ class App extends React.Component {
                       </Suspense>}
                     />
                     <Route path='/users'
-                      render={() => <UsersContainer pageTitle={'All users'}
+                      render={() => <UsersContainer
                       />}
                     />
                     <Route path='/login'

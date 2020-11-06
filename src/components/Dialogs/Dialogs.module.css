@@ -12,7 +12,6 @@
    padding-left: 40px;
    font-style: italic;
    border-left: 1px dashed gray;
-
 }
 
 .dialogsList .active {
@@ -27,4 +26,13 @@
 .sendMessageButton {
     border-radius: 10px;
     padding: 3px;
+}
+
+@media screen and (max-width: 400px) {
+    .messagesList {
+        padding-left: 5px;
+    }
+    .dialogsList {
+        padding-left: 5px;
+    }
 }
