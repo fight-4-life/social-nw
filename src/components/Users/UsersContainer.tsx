@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, unfollow, requestUsers, setCurrentPage } from '../../redux/usersReducer';
+import { follow, unfollow, requestUsers,  } from '../../redux/usersReducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader'
 
@@ -22,7 +22,9 @@ type MapDispatchPropsType = {
     follow: (userId: number) => void
     unfollow: (userId: number) => void
     getUsers: (page: number, pageSize: number) => void
-    setCurrentPage: (currentPage: number) => void
+
+    // todo нужен ли ?
+    // setCurrentPage: (currentPage: number) => void
 }
 
 type OwnPropsType = {
@@ -77,7 +79,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
 
 export default compose( //   <TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState>
     connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps,
-        { follow, unfollow, setCurrentPage, getUsers: requestUsers  })
+        { follow, unfollow, getUsers: requestUsers  })
 )(UsersContainer)
 
 // let mapDispatchToProps = (dispatch) => {
