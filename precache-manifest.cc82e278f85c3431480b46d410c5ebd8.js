@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7b4753d24394ef7eb897d8c4e28a2966",
+    "revision": "c99e382837b02f088dfdd06e11635794",
     "url": "/social-nw/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/social-nw/static/css/4.16ee6663.chunk.css"
   },
   {
-    "revision": "0c5a84364aec029a6343",
+    "revision": "7ea4956c75889860f351",
     "url": "/social-nw/static/css/main.4eb23bd5.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/social-nw/static/js/4.cb385f56.chunk.js"
   },
   {
-    "revision": "0c5a84364aec029a6343",
-    "url": "/social-nw/static/js/main.b8405c63.chunk.js"
+    "revision": "7ea4956c75889860f351",
+    "url": "/social-nw/static/js/main.ed908eab.chunk.js"
   },
   {
     "revision": "46334443429c66d48801",
