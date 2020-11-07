@@ -14,6 +14,7 @@ import Preloader from './components/common/Preloader/Preloader';
 import Footer from './components/Footer/Footer';
 import Sidebar from './components/Sidebar/Sideber';
 import 'antd/dist/antd.css';
+import {page404} from "./components/common/404/page404";
 // import ProfileContainer from './components/Profile/ProfileContainer';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
 
@@ -76,9 +77,7 @@ class App extends React.Component {
                     <Route path='/photos' component={Photos} />
                     <Route path='/music' component={Music} />
                     <Route path='/settings' component={Settings} />
-                    <Route path='*'
-                      render={() => <div>404 NOT FOUND</div>}
-                    />
+                    <Route path='*' component={page404}/>
                   </Switch>
                 </div>
                 <Sidebar/>
