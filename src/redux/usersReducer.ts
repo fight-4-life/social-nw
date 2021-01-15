@@ -1,7 +1,7 @@
-import { UsersType } from './../types/types';
-import { usersAPI } from '../api/api'
-import {AppStateType, InferActionsTypes} from "./reduxStore";
+import { UsersType } from '../types/types';
+import {AppStateType, BaseThunkType, InferActionsTypes} from "./reduxStore";
 import {Dispatch} from "redux";
+import {usersApi} from "../api/usersApi";
 
 const FOLLOW = 'users/FOLLOW';
 const UNFOLLOW = 'users/UNFOLLOW';
@@ -21,6 +21,22 @@ let initialState = {
 }
 
 type InitialStateType = typeof initialState
+
+type ActionsTypes = InferActionsTypes<typeof actions >
+
+export const actions = {
+  followSuccess: (userId: number) => ({ type: FOLLOW, userId } as const),
+  unfollowSuccess: (userId: number) => ({ type: UNFOLLOW, userId } as const),
+  setUsers: (users: Array<UsersType>) => ({ type: SET_USERS, users } as const),
+  setCurrentPage: (currentPage: number) => ({ type: SET_CURRENT_PAGE, currentPage } as const),
+  setTotalUsersCount: (totalUsersCount: number) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount } as const),
+  toggleIsFetching: (isFetching: boolean) => ({ type: TOGGLE_IS_FETCHING, isFetching } as const),
+  toggleIsFollowing: (isFetching: boolean, userId: number) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId } as const)
+}
+
+type DispatchType = Dispatch<ActionsTypes>
+type GetStateType = () => AppStateType
+type ThunkType = BaseThunkType<ActionsTypes>
 
 const usersReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
 
@@ -67,49 +83,36 @@ const usersReducer = (state = initialState, action: ActionsTypes): InitialStateT
   }
 }
 
-type ActionsTypes = InferActionsTypes<typeof actions >
 
-export const actions = {
-  followSuccess: (userId: number) => ({ type: FOLLOW, userId } as const),
-  unfollowSuccess: (userId: number) => ({ type: UNFOLLOW, userId } as const),
-  setUsers: (users: Array<UsersType>) => ({ type: SET_USERS, users } as const),
-  setCurrentPage: (currentPage: number) => ({ type: SET_CURRENT_PAGE, currentPage } as const),
-  setTotalUsersCount: (totalUsersCount: number) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount } as const),
-  toggleIsFetching: (isFetching: boolean) => ({ type: TOGGLE_IS_FETCHING, isFetching } as const),
-  toggleIsFollowing: (isFetching: boolean, userId: number) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId } as const)
-}
 
-type DispatchType = Dispatch<ActionsTypes>
-type GetStateType = () => AppStateType
-
-export const requestUsers = (page: number, pageSize: number) => {
+export const requestUsers = (page: number, pageSize: number): ThunkType => {
   return async (dispatch: DispatchType, getState: GetStateType ) => {
     dispatch(actions.toggleIsFetching(true))
     dispatch(actions.setCurrentPage(page))
 
-    const data = await usersAPI.getUsers(page, pageSize)
+    const data = await usersApi.getUsers(page, pageSize)
     dispatch(actions.toggleIsFetching(false))
     dispatch(actions.setUsers(data.items))
     dispatch(actions.setTotalUsersCount(data.totalCount))
   }
 }
 
-export const follow = (userId: number) => {
+export const follow = (userId: number): ThunkType => {
   return async (dispatch: DispatchType, getState: GetStateType) => {
     dispatch(actions.toggleIsFollowing(true, userId))
-    const response = await usersAPI.follow(userId)
-    if (response.data.resultCode === 0) {
+    const response = await usersApi.follow(userId)
+    if (response.resultCode === 0) {
       dispatch(actions.followSuccess(userId))
     }
     dispatch(actions.toggleIsFollowing(false, userId))
   }
 }
 
-export const unfollow = (userId: number) => {
+export const unfollow = (userId: number): ThunkType => {
   return async (dispatch: DispatchType, getState: GetStateType) => {
     dispatch(actions.toggleIsFollowing(true, userId))
-    const response = await usersAPI.unfollow(userId)
-    if (response.data.resultCode === 0) {
+    const response = await usersApi.unfollow(userId)
+    if (response.resultCode === 0) {
       dispatch(actions.unfollowSuccess(userId))
     }
     dispatch(actions.toggleIsFollowing(false, userId))
