@@ -1,9 +1,10 @@
 import React from 'react';
-import Header from './Header';
+import Header, {PropsType} from './Header';
 import { connect } from 'react-redux';
 import { logout } from '../../redux/authReducer';
+import {AppStateType} from "../../redux/reduxStore";
 
-class HeaderComponent extends React.Component {
+class HeaderComponent extends React.Component<PropsType> {
     render() {
         return (
             <Header {...this.props} />
@@ -11,7 +12,7 @@ class HeaderComponent extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: AppStateType) => ({
     isAuth: state.auth.isAuth,
     login: state.auth.login
 })

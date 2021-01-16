@@ -7,7 +7,7 @@ type DialogType = {
   name: string 
 }
 
-type MessageType = { 
+export type MessageType = {
   id: number 
   message: string 
 }
@@ -29,7 +29,7 @@ const initialState = {
   ] as Array<MessageType>
 }
 
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 type ActionsTypes = InferActionsTypes<typeof actions>
 
 export const actions = {

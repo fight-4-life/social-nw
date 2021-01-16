@@ -3,7 +3,7 @@ import React from "react";
 const useState = React.useState
 const useEffect = React.useEffect
 
-export const Time = () =>  {
+export const Time: React.FC = () =>  {
     const [theTime, setTheTime] = useState(new Date().toLocaleString())
 
     useEffect(() => {

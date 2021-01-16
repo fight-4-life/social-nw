@@ -20,7 +20,7 @@ export const actions = {
 type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsType | FormAction>
 
-type PostsType = {
+export type PostsType = {
   id: number
   post: string
   likesCount: number

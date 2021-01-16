@@ -1,7 +1,7 @@
 import React from 'react';
 import {Result, Button} from "antd";
 
-export const page404 = () => {
+export const page404: React.FC = () => {
     return(
     <Result
         status="404"

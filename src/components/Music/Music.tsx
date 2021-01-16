@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Settings() {
+const Music: React.FC = () => {
   return (
     <div>
-      Settings
+      Music
     </div>
   );
 }
 
-export default Settings;
+export default Music;

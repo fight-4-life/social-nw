@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Photos() {
+const Photos: React.FC = () => {
   return (
     <div>
       Photos

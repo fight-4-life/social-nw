@@ -3,7 +3,12 @@ import styles from './Post.module.css';
 import smallUserpic from '../../../../assets/mrrobot.png'
 import {Button} from "antd";
 
-function Post(props) {
+type PropsType = {
+  message: string
+  likes: number
+}
+
+const Post: React.FC<PropsType> = (props) => {
   return (
     <div>
       <div className={styles.item}>

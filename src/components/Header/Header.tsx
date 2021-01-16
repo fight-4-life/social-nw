@@ -3,7 +3,13 @@ import styles from './Header.module.css';
 import { NavLink, Redirect } from 'react-router-dom';
 import logo from '../../assets/eye.png'
 
-function Header(props) {
+export type PropsType = {
+    isAuth: boolean
+    login: string
+    logout: () => void
+}
+
+const Header: React.FC<PropsType> = (props) => {
     return (
         <header className={styles.header}>
             <img src={logo} alt={'logo'} />
