@@ -38,3 +38,7 @@ export const getFollow = (state: AppStateType) => {
 export const getUnfollow = (state: AppStateType) => {
     return state.usersPage.unfollow
 }
+
+export const getUsersFilter = (state: AppStateType) => {
+    return state.usersPage.filter
+}

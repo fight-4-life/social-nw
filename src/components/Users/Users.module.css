@@ -21,7 +21,7 @@
     padding: 10px 10px;
     margin: 5px;
 
-    height: 210px;
+    height: 225px;
     width: 250px;
 
     box-shadow: inset 9px 5px rgba(188, 186, 214, 0.616);
@@ -42,7 +42,7 @@
 
 @media screen and (max-width: 400px) {
     .userInList {
-        height: 130px;
+        height: 150px;
         width: 170px;
         font-size: 0.8em;
         margin: 0;

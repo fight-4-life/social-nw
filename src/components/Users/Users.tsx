@@ -1,19 +1,23 @@
- import React, {useEffect} from 'react';
-import styles from './Users.module.css'
-import userPhoto from '../../assets/mrrobot.png'
-import {NavLink} from 'react-router-dom';
-import Pagination from './Pagination';
-import {UsersType} from '../../types/types';
-import {Button} from "antd";
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import userPhoto from '../../assets/mrrobot.png'
+import {UsersType} from '../../types/types';
 import {
     getCurrentPage,
     getFollowingInProgress,
     getPageSize,
     getTotalUsersCount,
-    getUsers
+    getUsers,
+    getUsersFilter
 } from "../../redux/userSelectors";
-import {follow, requestUsers, unfollow} from "../../redux/usersReducer";
+
+import Pagination from './Pagination';
+import {FilterType, follow, requestUsers, unfollow} from "../../redux/usersReducer";
+import {UsersSearchForm} from "./UsersSearchForm";
+
+import {Button} from "antd";
+import {NavLink} from 'react-router-dom';
+import styles from './Users.module.css'
 
 type PropsType = {}
 
@@ -24,17 +28,18 @@ const Users: React.FC<PropsType> = React.memo((props) => {
     const currentPage = useSelector(getCurrentPage)
     const users: Array<UsersType> = useSelector(getUsers)
     const followingInProgress = useSelector(getFollowingInProgress)
+    const filter = useSelector(getUsersFilter)
 
     const dispatch = useDispatch()
 
     useEffect(
         () => {
-            dispatch(requestUsers(currentPage, pageSize))
+            dispatch(requestUsers(currentPage, pageSize, filter))
         }, []
     )
 
     const onPageChange = (pageNumber: number) => {
-        dispatch(requestUsers(pageNumber, pageSize))
+        dispatch(requestUsers(pageNumber, pageSize, filter))
     }
     const followUser = (userId: number) => {
         dispatch(follow(userId))
@@ -43,7 +48,14 @@ const Users: React.FC<PropsType> = React.memo((props) => {
         dispatch(unfollow(userId))
     }
 
+    const onFilterChanged = (filter: FilterType) => {
+        dispatch(requestUsers(1, pageSize, filter))
+    }
+
     return (<div className={styles.usersPage}>
+
+            <UsersSearchForm onFilterChanged={onFilterChanged}/>
+
             <Pagination
                 currentPage={currentPage}
                 onPageChange={onPageChange}
@@ -91,7 +103,6 @@ const Users: React.FC<PropsType> = React.memo((props) => {
                 </div>)}
         </div>
     )
-
 })
 
 export default Users;
