@@ -7,7 +7,7 @@ import Settings from './components/Settings/Settings';
 import {HashRouter, Route, Switch, Redirect, NavLink, Link} from 'react-router-dom';
 import {UsersContainer} from './components/Users/UsersContainer';
 import HeaderComponent from './components/Header/HeaderComponent';
-import Login from './components/Login/Login';
+import {Login} from './components/Login/Login';
 import {connect} from 'react-redux';
 import {initializeApp} from './redux/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
