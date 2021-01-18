@@ -1,28 +1,38 @@
 .nav {
     grid-area: n;
     background-color: rgb(40, 54, 81);
-  }
+    display: flex;
+    justify-content: center;
+}
 
 .item a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
+
 ul {
- margin-left: -1em;
+    margin-left: -1em;
+    padding-top: 30%;
 }
+
 li {
-  list-style: none;
+    padding-top: 15%;
+    list-style: none;
 }
 
 a.activeLink, a:hover {
-  color: rgb(64, 196, 248);;
+    color: rgb(64, 196, 248);;
 }
 
 @media screen and (max-width: 400px) {
-  .nav  {
-      width: 100px;
-  }
-  ul {
+    .nav {
+        width: 100px;
+    }
+
+    ul {
         margin-left: -1.5em;
+    }
+    li {
+        padding-top: 8%;
     }
 }

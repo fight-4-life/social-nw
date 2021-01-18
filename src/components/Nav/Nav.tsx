@@ -16,6 +16,9 @@ const Nav: React.FC = () => {
                     <NavLink activeClassName={styles.activeLink} to='/users'>Users</NavLink>
                 </li>
                 <li className={styles.item}>
+                    <NavLink activeClassName={styles.activeLink} to='/chat'>Chat</NavLink>
+                </li>
+                <li className={styles.item}>
                     <NavLink activeClassName={styles.activeLink} to='/photos'>Photos</NavLink>
                 </li>
                 <li className={styles.item}>
