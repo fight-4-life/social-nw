@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import userPhoto from '../../assets/mrrobot.png'
+import {NavLink, useHistory} from 'react-router-dom';
 import {UsersType} from '../../types/types';
 import {
     getCurrentPage,
@@ -15,11 +15,13 @@ import Pagination from './Pagination';
 import {FilterType, follow, requestUsers, unfollow} from "../../redux/usersReducer";
 import {UsersSearchForm} from "./UsersSearchForm";
 
+import userPhoto from '../../assets/mrrobot.png'
 import {Button} from "antd";
-import {NavLink} from 'react-router-dom';
 import styles from './Users.module.css'
+import * as queryString from "querystring";
 
 type PropsType = {}
+type QueryParamsType = { term?: string; page?: string; friend?: string }
 
 const Users: React.FC<PropsType> = React.memo((props) => {
 
@@ -31,12 +33,47 @@ const Users: React.FC<PropsType> = React.memo((props) => {
     const filter = useSelector(getUsersFilter)
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     useEffect(
         () => {
-            dispatch(requestUsers(currentPage, pageSize, filter))
+            const parsed = queryString.parse(history.location.search.substr(1)) as { term: string, page: string, friend: string }
+
+            let actualPage = currentPage
+            let actualFilter = filter
+
+            if (!!parsed.page) actualPage = Number(parsed.page)
+            if (!!parsed.term) actualFilter = {...actualFilter, term: parsed.term}
+
+            switch (parsed.friend) {
+                case "null":
+                    actualFilter = {...actualFilter, friend: null}
+                    break;
+                case "true":
+                    actualFilter = {...actualFilter, friend: true}
+                    break;
+                case "false":
+                    actualFilter = {...actualFilter, friend: false}
+                    break;
+            }
+
+            dispatch(requestUsers(actualPage, pageSize, actualFilter))
         }, []
     )
+
+    useEffect(() => {
+        const query: QueryParamsType = {}
+
+        if (filter.term) query.term = filter.term
+        if (filter.friend !== null) query.friend = String(filter.friend)
+        if (currentPage !== 1) query.page = String(currentPage)
+
+        history.push({
+            pathname: '/users',
+            search: queryString.stringify(query)
+        })
+    }, [filter, currentPage])
+
 
     const onPageChange = (pageNumber: number) => {
         dispatch(requestUsers(pageNumber, pageSize, filter))
